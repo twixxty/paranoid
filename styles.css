@@ -1,0 +1,219 @@
+
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+::-webkit-scrollbar {
+    display: none;
+}
+
+html {
+    scrollbar-width: none;
+}
+
+body {
+    -webkit-tap-highlight-color: transparent;
+    -ms-overflow-style: none;
+}
+
+
+body, html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #000000;
+}
+
+.container {
+    display: flex;
+    width: 100%; 
+    height: 100%; 
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    overflow: hidden; 
+}
+
+.video-section {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: -1; 
+}
+
+.video-section iframe {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    height: 100%;
+    width: auto;
+    aspect-ratio: 16 / 9;
+    border: none;
+}
+
+
+
+.content-section {
+    backdrop-filter: blur(60px);
+    background-color: rgba(0, 0, 0, 0.689); 
+    color: aliceblue;
+    right: 0;
+    position: absolute;
+    height: 120%;
+    width: 40%;
+    z-index: 1000;
+    flex: 3;
+    padding: 20px;
+}
+
+
+.loading-screen {
+    font-weight: 500;
+    font-family: poppins;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    backdrop-filter: blur(60px);
+    background-color: rgba(0, 0, 0, 0.4); 
+    z-index: 2000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    color: #fff;
+    animation: fadeOut 1s ease-out forwards;
+    animation-delay: 4s; 
+}
+
+@keyframes fadeOut {
+    to {
+        opacity: 0;
+        visibility: hidden;
+        filter: blur(20px);
+    }
+}
+
+.hidden {
+    display: none;
+}
+#discord-info {
+    text-align: center;
+    gap: 10px;
+}
+
+#banner {
+    background-color: var(--accent-color);
+    width: 100%;
+    border-radius: 10px;
+}
+
+#avatar {
+    width: 10vw;
+    margin-top: 50px;
+    border-radius: 100vw;
+    border: 5px solid rgba(255, 255, 255, 0.1);
+    background-color: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(15px); 
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+#discord-info {
+    padding: 10px 0;
+}
+
+@media (max-width: 768px) {
+    .content-section {
+        width: 100%;
+    }
+    #banner {
+        width: 80vw;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        border-radius: 10px;
+    }
+    
+    .content-section {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center; 
+    }
+    #avatar {
+        transition: background-color 0.3s ease,border 0.1s ease, padding 0.1s ease;
+
+        width: 18vw;
+        border-radius: 100vw;
+        border: 5px solid rgba(255, 255, 255, 0.1);
+        background-color: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(15px);
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    }
+    
+}
+#display-name, #username {
+    font-family: poppins;
+}
+#username {
+    color: #e0e0e063;
+}
+#display-name {
+}
+
+#discord-info h2,h3 {
+    margin: 0;
+    padding: 0;
+  }
+  
+  .name-group {
+    display: flex;
+    flex-direction: column;
+    gap: 2px; 
+  }
+  .social-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 20px;
+    align-items: center; 
+  }
+  
+  .social-rect-button {
+    display: flex;
+    align-items: center;
+    gap: 10px; 
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 10px 15px;
+    border-radius: 5px;
+    text-decoration: none;
+    color: #fff;
+    font-family: 'Poppins', sans-serif;
+    width: 220px;
+    transition: background-color 0.3s ease,border 0.1s ease, padding 0.1s ease;
+    border: 2px solid rgba(255, 255, 255, 0);
+
+  }
+  
+  .social-rect-button:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    border: 2px solid rgba(255, 255, 255, 0.1);
+
+  }
+  
+  .social-icon {
+    filter: brightness(0) invert(1); 
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
+    display: block;
+  }
+  
+  #avatar:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+
+  }
